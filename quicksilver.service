@@ -1,0 +1,12 @@
+
+[Unit]
+Description=Runs discord bot that puts messages in a channel when a new video is uploaded 
+After=network.service
+[Service]
+User=media-user
+Group=media-user
+WorkingDirectory=/home/media-user/quicksilver/
+ExecStart=/usr/bin/python3 /home/media-user/quicksilver/quicksilver.py 
+Type=simple 
+[Install]
+WantedBy=multi-user.target
