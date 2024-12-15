@@ -1,3 +1,2 @@
 #!/bin/bash
-
-python3 /home/media-user/quicksilver/quicksilver.py 
+python3 quicksilver.py &> /dev/null
