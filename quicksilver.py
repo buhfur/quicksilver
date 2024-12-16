@@ -29,7 +29,6 @@ async def on_ready():
     channel = bot.get_channel(CHANNEL_ID)
     await channel.send("Hey I figured this shit out ! Fuck the discord API! ")
 
-'''
 @tasks.loop(minutes=1)  # Checks every 24 hours , adjust as needed
 async def check_for_new_videos():
     global last_video_id
@@ -62,10 +61,7 @@ async def check_for_new_videos():
 async def before_check_for_new_videos():
     await bot.wait_until_ready()
 
-'''
-@bot.command(name="test")
-async def test_command(ctx):
-    await ctx.send("Test successful , I figured this shit out !")
+
 
 try:
     bot.run(TOKEN)
