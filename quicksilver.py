@@ -4,12 +4,13 @@ from discord.ext import tasks, commands
 import feedparser
 import asyncio
 from dotenv import dotenv_values
-
 # ====== CONFIGURATION ======
 config = dotenv_values(".env")  # Your bot token from the Discord Dev Portal
 
 TOKEN = config["TOKEN"]
-CHANNEL_ID = 1317898361185243146 # ID of marvel rivals channel 
+CHANNEL_ID = 1317898361185243146
+
+
 CHANNEL_URL = "https://www.youtube.com/feeds/videos.xml?channel_id=UCz2_M6-NBgdiLvDOmlH074g"
 
 # ====== END CONFIGURATION ======
@@ -20,14 +21,16 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Store the latest video ID to detect new uploads
 last_video_id = None
-
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user} (ID: {bot.user.id})")
             # Start the loop after the bot is ready
-    check_for_new_videos.start()
+    #check_for_new_videos.start()
+    channel = bot.get_channel(CHANNEL_ID)
+    await channel.send("Hey I figured this shit out ! Fuck the discord API! ")
 
-@tasks.loop(minutes=1440)  # Checks every 24 hours , adjust as needed
+'''
+@tasks.loop(minutes=1)  # Checks every 24 hours , adjust as needed
 async def check_for_new_videos():
     global last_video_id
     feed = feedparser.parse(CHANNEL_URL)
@@ -59,5 +62,14 @@ async def check_for_new_videos():
 async def before_check_for_new_videos():
     await bot.wait_until_ready()
 
-bot.run(TOKEN)
+'''
+@bot.command(name="test")
+async def test_command(ctx):
+    await ctx.send("Test successful , I figured this shit out !")
+
+try:
+    bot.run(TOKEN)
+
+except Exception as e:
+    print(e)
 
