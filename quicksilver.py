@@ -11,7 +11,7 @@ TOKEN = config["TOKEN"]
 CHANNEL_ID = 1317898361185243146
 
 
-CHANNEL_URL = "https://www.youtube.com/feeds/videos.xml?channel_id=UCz2_M6-NBgdiLvDOmlH074g"
+CHANNEL_URL = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4H0oRE4f4j3SgEoWbPkJUw"
 
 # ====== END CONFIGURATION ======
 
